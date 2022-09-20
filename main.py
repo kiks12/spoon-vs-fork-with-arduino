@@ -9,7 +9,7 @@ cam = cv.VideoCapture(0)
 pb = './saved-models/model1.5.h5'
 classes = ['fork', 'neither', 'spoon']
 
-arduino = serial.Serial("/dev/cu.usbmodem1401", baudrate=2000000)
+#arduino = serial.Serial("/dev/cu.usbmodem1401", baudrate=2000000)
 
 model = tf.keras.models.load_model(pb)
 model.summary()
@@ -37,7 +37,7 @@ while True:
     prev = classes[pred]
 
     if count == 15:
-        arduino.write(str(pred + 1).encode())
+        #arduino.write(str(pred + 1).encode())
         count = 0
         time.sleep(0.1)
 
